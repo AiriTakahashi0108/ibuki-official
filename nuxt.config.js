@@ -45,10 +45,16 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
+    postcss: {
+      plugins: [
+        require('postcss-preset-env')({
+          features: {
+            'nesting-rules': true,
+          }
+        }),
+      ]
+    },
+    extend(config, ctx) {
     }
   }
 }
