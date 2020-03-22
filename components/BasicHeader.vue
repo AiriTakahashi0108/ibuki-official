@@ -5,19 +5,19 @@
       <nuxt-link to="/" class="menu-link">
         <p class="menu-link-txt">TOP<span class="--jp">- トップページ -</span></p>
       </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
+      <nuxt-link to="/news" class="menu-link">
         <p class="menu-link-txt">NEWS<span class="--jp">- 新着情報 -</span></p>
       </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
+      <nuxt-link to="/profile" class="menu-link">
         <p class="menu-link-txt">PROFILE<span class="--jp">- 自己紹介 -</span></p>
       </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
+      <nuxt-link to="/discography" class="menu-link">
         <p class="menu-link-txt">DISCOGRAPHY<span class="--jp">- CD・動画-</span></p>
       </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
+      <nuxt-link to="/schedule" class="menu-link">
         <p class="menu-link-txt">SCHEDULE<span class="--jp">- ライブ・イベント情報 -</span></p>
       </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
+      <nuxt-link to="/contact" class="menu-link">
         <p class="menu-link-txt">CONTACT<span class="--jp">- お気軽にどうぞ -</span></p>
       </nuxt-link>
       <nuxt-link to="/" class="menu-link">
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import HeaderLogo from '@/components/HeaderLogo'
+  import HeaderLogo from '@/components/parts/HeaderLogo'
 
   export default {
     name: 'BasicHeader',
@@ -43,8 +43,8 @@
   .BasicHeader {
     width: 100%;
     height: max-content;
-    background: var(--basic-backColor);
-    color: var(--basic-fontColor);
+    background: var(--basic-backColor-dark);
+    color: var(--basic-fontColor-light);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -92,7 +92,7 @@
       opacity: 0;
       font-size: 13px;
       line-height: 18px;
-      color: var(--basic-fontColor-thin-1);
+      color: var(--basic-fontColor-light-thin-1);
       transition: all 0.7s;
       position: absolute;
       top: 47px;
@@ -101,5 +101,4 @@
       width: 200px;
     }
   }
-
 </style>

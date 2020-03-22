@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="BasicFooter">
     footer
   </div>
 </template>
@@ -11,3 +11,9 @@
 
 </script>
 
+<style>
+  .BasicFooter {
+    height: 300px;
+    background: var(--basic-backColor-dark);
+  }
+</style>

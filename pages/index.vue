@@ -5,8 +5,14 @@
         <FirstViewLogo class="firstView-logo"/>
       </div>
       <div class="backgroundOpacity">
-        <div class="news content">
+        <div class="topNews content">
           テスト
+        </div>
+        <div class="topSns content">
+          <p>オススメ動画</p>
+        </div>
+        <div class="pickUp content">
+          <p>オススメ動画</p>
         </div>
       </div>
       <BasicFooter/>
@@ -15,16 +21,15 @@
 </template>
 
 <script>
-  import FirstViewLogo from "@/components/FirsrViewLogo";
+  import FirstViewLogo from "@/components/parts/FirsrViewLogo";
   import BasicFooter from "@/components/BasicFooter";
-
 
   export default {
     components: {FirstViewLogo, BasicFooter}
   }
 </script>
 
-<style>
+<style scoped>
   .backgroundFix {
     width: 100vw;
     height: 100vh;
@@ -47,7 +52,6 @@
     height: 100vh;
     width: 100vw;
   }
-
   .firstView-logo {
     width: 35%;
     position: absolute;
@@ -62,7 +66,13 @@
     background: rgba(0, 0, 0, 0.7);
   }
 
-  .news {
+  .topNews {
     height: 1000px;
+  }
+
+  .topSns {
+  }
+
+  .pickUp {
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <BasicHeader/>
-    <main>
+    <main class="mainContents">
       <nuxt/>
     </main>
   </div>
@@ -17,17 +17,29 @@
 </script>
 
 <style>
-
-  :root {
-    --basic-fontColor: #fff;
-    --basic-fontColor-thin-1: #c1c1c1;
-
-    --basic-backColor: #000;
+  body {
+    color: var(--basic-fontColor-light);
   }
 
-  content {
+  :root {
+    --basic-fontColor-light: #fff;
+    --basic-fontColor-light-thin-1: #c1c1c1;
+    --basic-fontColor-dark: #121212;
+
+
+    --basic-backColor-dark: #000;
+  }
+
+  .content {
     max-width: 1100px;
     width: 100%;
     padding: 30px;
+    margin: 0 auto;
+  }
+
+  .mainContents{
+    position: absolute;
+    top: 70px;
+    width: 100vw;
   }
 </style>
