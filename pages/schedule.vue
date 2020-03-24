@@ -6,12 +6,6 @@
   </div>
 </template>
 
-
-<style>
-  .news {
-    color: var(--basic-fontColor-dark);
-  }
-</style>
 <script>
   import PageTitle from "@/components/parts/PageTitle";
   export default {
@@ -24,3 +18,9 @@
     }
   }
 </script>
+
+<style>
+  .scheduleContainer {
+    color: var(--basic-fontColor-dark);
+  }
+</style>

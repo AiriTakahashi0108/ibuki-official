@@ -20,8 +20,8 @@
   }
 </script>
 
-<style>
-  .news {
+<style scoped>
+  .profileContainer {
     color: var(--basic-fontColor-dark);
   }
 </style>

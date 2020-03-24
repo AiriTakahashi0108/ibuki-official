@@ -21,6 +21,13 @@
     color: var(--basic-fontColor-light);
   }
 
+  a, a:active, a:visited, .nuxt-link-exact-active, .nuxt-link-active{
+    text-decoration: none;
+    border: none;
+    color: inherit;
+    border-bottom-color:none;
+  }
+
   :root {
     --basic-fontColor-light: #fff;
     --basic-fontColor-light-thin-1: #c1c1c1;

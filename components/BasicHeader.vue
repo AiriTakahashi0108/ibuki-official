@@ -1,29 +1,39 @@
 <template>
-  <div class="BasicHeader">
-    <nuxt-link to="/"><HeaderLogo class="logo"/></nuxt-link>
-    <nav class="menu">
-      <nuxt-link to="/" class="menu-link">
-        <p class="menu-link-txt">TOP<span class="--jp">- トップページ -</span></p>
+  <div class="BasicHeaderWrapper">
+    <div class="BasicHeader">
+      <nuxt-link to="/">
+        <HeaderLogo class="logo"/>
       </nuxt-link>
-      <nuxt-link to="/news" class="menu-link">
-        <p class="menu-link-txt">NEWS<span class="--jp">- 新着情報 -</span></p>
+      <nav class="menu">
+        <nuxt-link to="/" class="menuLink">
+          <p class="menuLinkTxt">TOP<span class="--jp">- トップページ -</span></p>
+        </nuxt-link>
+        <nuxt-link to="/news" class="menuLink">
+          <p class="menuLinkTxt">NEWS<span class="--jp">- 新着情報 -</span></p>
+        </nuxt-link>
+        <nuxt-link to="/profile" class="menuLink">
+          <p class="menuLinkTxt">PROFILE<span class="--jp">- 自己紹介 -</span></p>
+        </nuxt-link>
+        <div to="/discography" class="menuLink discography">
+          <p class="menuLinkTxt">DISCOGRAPHY<span class="--jp">- CD・動画-</span></p>
+        </div>
+        <nuxt-link to="/schedule" class="menuLink">
+          <p class="menuLinkTxt">SCHEDULE<span class="--jp">- ライブ・イベント情報 -</span></p>
+        </nuxt-link>
+        <nuxt-link to="/contact" class="menuLink">
+          <p class="menuLinkTxt">CONTACT<span class="--jp">- お気軽にどうぞ -</span></p>
+        </nuxt-link>
+        <nuxt-link to="/" class="menuLink">
+          <p class="menuLinkTxt">IBUKI's VOICE TRAINING</p>
+        </nuxt-link>
+      </nav>
+    </div>
+    <div class="discographyList">
+      <nuxt-link to="/discography/original" class="discographyLink">ORIGINAL <span class="--jp">-オリジナル作品-</span>
       </nuxt-link>
-      <nuxt-link to="/profile" class="menu-link">
-        <p class="menu-link-txt">PROFILE<span class="--jp">- 自己紹介 -</span></p>
-      </nuxt-link>
-      <nuxt-link to="/discography" class="menu-link">
-        <p class="menu-link-txt">DISCOGRAPHY<span class="--jp">- CD・動画-</span></p>
-      </nuxt-link>
-      <nuxt-link to="/schedule" class="menu-link">
-        <p class="menu-link-txt">SCHEDULE<span class="--jp">- ライブ・イベント情報 -</span></p>
-      </nuxt-link>
-      <nuxt-link to="/contact" class="menu-link">
-        <p class="menu-link-txt">CONTACT<span class="--jp">- お気軽にどうぞ -</span></p>
-      </nuxt-link>
-      <nuxt-link to="/" class="menu-link">
-        <p class="menu-link-txt">IBUKI's VOICE TRAINING</p>
-      </nuxt-link>
-    </nav>
+      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="--jp">-依頼作品-</span></nuxt-link>
+      <nuxt-link to="/discography/cover" class="discographyLink">COVER <span class="--jp">-カバー動画-</span></nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -39,7 +49,9 @@
 </script>
 
 <style scoped>
-
+  .BasicHeaderWrapper {
+    position: relative;
+  }
   .BasicHeader {
     width: 100%;
     height: max-content;
@@ -66,12 +78,14 @@
     text-align: center;
     align-items: center;
   }
-  .menu-link {
+
+  .menuLink {
     display: inline-block;
     text-align: center;
     transition: all 0.7s;
   }
-  .menu-link-txt {
+
+  .menuLinkTxt {
     font-size: 18px;
     width: max-content;
     line-height: 30px;
@@ -79,9 +93,11 @@
     padding: 20px 22px;
     margin: 0 auto;
     position: relative;
+
     &:hover {
       font-size: 22px;
       padding: 20px 22px 35px 22px;
+
       & > .--jp {
         opacity: 1;
       }
@@ -99,6 +115,32 @@
       left: 50%;
       transform: translateX(-50%);
       width: 200px;
+    }
+  }
+
+  .discography {
+  }
+
+  .discographyList {
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(57, 57, 57, 0.66);
+    flex-direction: column-reverse;
+    display: flex;
+    padding-top: 100px;
+  }
+
+  .discographyLink {
+    height: 30px;
+    display: block;
+    transition: all 0.3s;
+
+    &:hover {
+      text-shadow: 0px 0px 6px #121212;
+      color: white;
+      background: rgba(90, 90, 90, 0.66);
     }
   }
 </style>
