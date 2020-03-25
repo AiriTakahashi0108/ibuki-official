@@ -31,7 +31,8 @@
     <div class="discographyList">
       <nuxt-link to="/discography/original" class="discographyLink">ORIGINAL <span class="--jp">-オリジナル作品-</span>
       </nuxt-link>
-      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="--jp">-依頼作品-</span></nuxt-link>
+      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="--jp">-依頼作品-</span>
+      </nuxt-link>
       <nuxt-link to="/discography/cover" class="discographyLink">COVER <span class="--jp">-カバー動画-</span></nuxt-link>
     </div>
   </div>
@@ -52,8 +53,9 @@
   .BasicHeaderWrapper {
     position: relative;
   }
+
   .BasicHeader {
-    width: 100%;
+    width: 100vw;
     height: max-content;
     background: var(--basic-backColor-dark);
     color: var(--basic-fontColor-light);
@@ -74,9 +76,9 @@
     justify-content: space-between;
     transition: all 0.7s;
     width: 70%;
-    min-width: 1100px;
     text-align: center;
     align-items: center;
+    min-width: 1100px;
   }
 
   .menuLink {
@@ -118,20 +120,17 @@
     }
   }
 
-  .discography {
-  }
-
   .discographyList {
     color: white;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     background: rgba(57, 57, 57, 0.66);
     flex-direction: column-reverse;
     display: flex;
     padding-top: 100px;
+    z-index: 100;
   }
-
   .discographyLink {
     height: 30px;
     display: block;

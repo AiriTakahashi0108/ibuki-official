@@ -17,6 +17,7 @@
 </script>
 
 <style>
+  /*設定*/
   body {
     color: var(--basic-fontColor-light);
   }
@@ -44,6 +45,11 @@
     margin: 0 auto;
   }
 
+  .heading-1 {
+
+  }
+
+  /*このページのスタイル*/
   .mainContents{
     position: absolute;
     top: 70px;
