@@ -14,9 +14,9 @@
         <nuxt-link to="/profile" class="menuLink">
           <p class="menuLinkTxt">PROFILE<span class="--jp">- 自己紹介 -</span></p>
         </nuxt-link>
-        <div to="/discography" class="menuLink discography">
+        <nuxt-link to="/discography" class="menuLink discography">
           <p class="menuLinkTxt">DISCOGRAPHY<span class="--jp">- CD・動画-</span></p>
-        </div>
+        </nuxt-link>
         <nuxt-link to="/schedule" class="menuLink">
           <p class="menuLinkTxt">SCHEDULE<span class="--jp">- ライブ・イベント情報 -</span></p>
         </nuxt-link>
@@ -28,13 +28,6 @@
         </nuxt-link>
       </nav>
     </div>
-<!--    <div class="discographyList">-->
-<!--      <nuxt-link to="/discography/original" class="discographyLink">ORIGINAL <span class="&#45;&#45;jp">-オリジナル作品-</span>-->
-<!--      </nuxt-link>-->
-<!--      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="&#45;&#45;jp">-依頼作品-</span>-->
-<!--      </nuxt-link>-->
-<!--      <nuxt-link to="/discography/cover" class="discographyLink">COVER <span class="&#45;&#45;jp">-カバー動画-</span></nuxt-link>-->
-<!--    </div>-->
   </div>
 </template>
 

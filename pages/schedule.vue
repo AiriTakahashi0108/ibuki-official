@@ -16,7 +16,7 @@
     name: 'SCHEDULE',
     data() {
       return {
-        pageTitle: "SCHEDULE",
+        pageTitle: 'SCHEDULE',
         pageDetail: "ライブ・イベント・リリースなどの情報です",
       }
     }

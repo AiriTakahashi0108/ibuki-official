@@ -35,7 +35,7 @@
     --basic-fontColor-dark: #121212;
 
 
-    --basic-backColor-dark: #000;
+    --basic-backColor-dark: rgba(0, 0, 0, 0.65);
     --header-minHeight: 69px;
   }
 
@@ -59,5 +59,6 @@
     padding: 30px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.73);
+    color: var(--basic-fontColor-dark);
   }
 </style>

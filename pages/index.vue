@@ -47,6 +47,10 @@
     height: 100vh;
     overflow: scroll;
   }
+  .content {
+    background: var(--basic-backColor-dark);
+    color: var(--basic-fontColor-light);
+  }
 
   .firstView {
     height: 100vh;
