@@ -28,13 +28,13 @@
         </nuxt-link>
       </nav>
     </div>
-    <div class="discographyList">
-      <nuxt-link to="/discography/original" class="discographyLink">ORIGINAL <span class="--jp">-オリジナル作品-</span>
-      </nuxt-link>
-      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="--jp">-依頼作品-</span>
-      </nuxt-link>
-      <nuxt-link to="/discography/cover" class="discographyLink">COVER <span class="--jp">-カバー動画-</span></nuxt-link>
-    </div>
+<!--    <div class="discographyList">-->
+<!--      <nuxt-link to="/discography/original" class="discographyLink">ORIGINAL <span class="&#45;&#45;jp">-オリジナル作品-</span>-->
+<!--      </nuxt-link>-->
+<!--      <nuxt-link to="/discography/request" class="discographyLink">REQUEST <span class="&#45;&#45;jp">-依頼作品-</span>-->
+<!--      </nuxt-link>-->
+<!--      <nuxt-link to="/discography/cover" class="discographyLink">COVER <span class="&#45;&#45;jp">-カバー動画-</span></nuxt-link>-->
+<!--    </div>-->
   </div>
 </template>
 
@@ -120,26 +120,26 @@
     }
   }
 
-  .discographyList {
-    color: white;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(57, 57, 57, 0.66);
-    flex-direction: column-reverse;
-    display: flex;
-    padding-top: 100px;
-    z-index: 100;
-  }
-  .discographyLink {
-    height: 30px;
-    display: block;
-    transition: all 0.3s;
+  /*.discographyList {*/
+  /*  color: white;*/
+  /*  position: absolute;*/
+  /*  top: 0;*/
+  /*  left: 0;*/
+  /*  background: rgba(57, 57, 57, 0.66);*/
+  /*  flex-direction: column-reverse;*/
+  /*  display: flex;*/
+  /*  padding-top: 100px;*/
+  /*  z-index: 100;*/
+  /*}*/
+  /*.discographyLink {*/
+  /*  height: 30px;*/
+  /*  display: block;*/
+  /*  transition: all 0.3s;*/
 
-    &:hover {
-      text-shadow: 0px 0px 6px #121212;
-      color: white;
-      background: rgba(90, 90, 90, 0.66);
-    }
-  }
+  /*  &:hover {*/
+  /*    text-shadow: 0px 0px 6px #121212;*/
+  /*    color: white;*/
+  /*    background: rgba(90, 90, 90, 0.66);*/
+  /*  }*/
+  /*}*/
 </style>

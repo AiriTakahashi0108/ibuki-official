@@ -10,6 +10,10 @@
   import PageTitle from "@/components/parts/PageTitle";
   export default {
     components: {PageTitle},
+    head: {
+      title: 'SCHEDULE',
+    },
+    name: 'SCHEDULE',
     data() {
       return {
         pageTitle: "SCHEDULE",
