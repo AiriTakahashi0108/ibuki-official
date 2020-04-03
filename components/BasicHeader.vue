@@ -50,7 +50,7 @@
   .BasicHeader {
     width: 100vw;
     height: max-content;
-    background: var(--basic-backColor-dark);
+    background: black;
     color: var(--basic-fontColor-light);
     display: flex;
     align-items: center;

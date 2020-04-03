@@ -4,9 +4,9 @@ const ORIGINAL = {
       id: 1,
       title: 'Rise!',
       record: 'IBUKI 1st Single「Rise!」',
-      movie: '',
+      movie: 'https://www.youtube.com/embed/eOmdH6yUy_s?start=1',
       description: `90年代を思わせるシンセサイザーや楽曲イメージに、2バスとシンセバスを重ね、斬新なアレンジ。`,
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: 'http://',
         discUnion: 'http://',
@@ -17,9 +17,9 @@ const ORIGINAL = {
       id: 2,
       title: 'DESIRE -情熱-!',
       record: 'NATSUMETAL 1st Album「NATSUMETAL」',
-      movie: '',
+      movie: 'https://www.youtube.com/embed/eOmdH6yUy_s?start=1',
       description: `IBUKI率いる、懐メロをメタルアレンジするバンドNATSUMETAL収録作品`,
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -27,15 +27,15 @@ const ORIGINAL = {
       },
     }
   ],
-  content: [
+  other: [
     {
       id: 1,
-      title: '',
-      JN: '',
-      price: '',
-      movie: '',
-      image:'',
-      buy: {
+      title: 'IBUKI 1st Single「Rise!/We are No.1」',
+      JN: 'IBKI-0001',
+      price: '1500',
+      movie: 'https://www.youtube.com/embed/eOmdH6yUy_s?start=1',
+      image:'~assets/image/jacket-sample.jpg',
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -43,13 +43,13 @@ const ORIGINAL = {
       },
     },
     {
-      id: 1,
-      title: '',
-      JN: '',
-      price: '',
-      movie: '',
+      id: 2,
+      title: 'IBUKI 1st Single「Rise!/We are No.1」',
+      JN: 'IBKI-0001',
+      price: '1500',
+      movie: 'https://www.youtube.com/embed/eOmdH6yUy_s?start=1',
       image:'',
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -57,17 +57,20 @@ const ORIGINAL = {
       },
     },
     {
-      id: 1,
-      title: '',
-      JN: '',
-      price: '',
-      buy: {
+      id: 3,
+      title: 'IBUKI 1st Single「Rise!/We are No.1」',
+      JN: 'IBKI-0001',
+      price: '1500',
+      movie: 'https://www.youtube.com/embed/eOmdH6yUy_s?start=1',
+      image:'',
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
         spotify: '',
       },
-    }]
+    },
+  ]
 }
 
 const REQUEST = {
@@ -75,25 +78,39 @@ const REQUEST = {
     {
       id: 1,
       title: 'Sky Killer',
-      record: 'FATE GEAR',
-      movie: '',
-      description: `メタルなナンバー`,
-      buy: {
+      record: 'FATE GEAR Album',
+      movie: 'https://www.youtube.com/embed/tLQbsoKQN-0?start=1',
+      description: `メタルなナンバーぜひお聞きください`,
+      purchase: {
         amazon: 'http://',
         towerRecord: 'http://',
         discUnion: 'http://',
         spotify: '',
+      }
+    },
+    {
+      id: 2,
+      title: '魔界',
+      record: '魔界2nd Album',
+      movie: 'https://www.youtube.com/embed/tLQbsoKQN-0?start=1',
+      description: `メタルなナンバーぜひお聞きください`,
+      purchase: {
+        amazon: '',
+        towerRecord: '',
+        discUnion: '',
+        spotify: '',
       },
+      notice: 'この作品は会場のみの販売となっております。',
     },
   ],
-  content: [
+  other: [
     {
       id: 1,
       title: '',
       JN: '',
       price: '',
       image:'',
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -106,7 +123,7 @@ const REQUEST = {
       JN: '',
       price: '',
       image:'',
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -119,7 +136,7 @@ const REQUEST = {
       JN: '',
       price: '',
       image:'',
-      buy: {
+      purchase: {
         amazon: 'http://',
         towerRecord: '',
         discUnion: '',
@@ -135,7 +152,7 @@ const COVER = {
     description: ``,
     movie: '',
   }],
-  content: [],
+  other: [],
 }
 
 export const state = () => ({

@@ -48,7 +48,7 @@
     overflow: scroll;
   }
   .content {
-    background: var(--basic-backColor-dark);
+    background: none;
     color: var(--basic-fontColor-light);
   }
 
