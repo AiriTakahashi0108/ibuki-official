@@ -2,16 +2,9 @@ import _ from 'lodash'
 
 export const state = () => ({
   form: {
-    name: '8888',
+    name: '',
     mail: '',
-    selected: '',
-    selectOption: [
-      '出演依頼',
-      'レコーディング依頼',
-      'ボイストレーニングについて',
-      'ファンメッセージ',
-      'その他',
-    ],
+    matter: '',
     comment: ``,
   }
 })
