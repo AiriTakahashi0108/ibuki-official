@@ -176,6 +176,8 @@
         }
       },
       sendMail() {
+        // TODO:メールを転送する処理をする
+        
         this.actionClearForm()
         this.mailVerification = ''
         this.formChange(2)
