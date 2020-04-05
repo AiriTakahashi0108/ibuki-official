@@ -45,7 +45,7 @@
         </div>
 
         <button @click="formChange(0)">戻る</button>
-        <button @click="formChange(1)">送信する</button>
+        <button @click="sendMail">送信する</button>
       </section>
 
       <!--送信完了-->
@@ -129,6 +129,7 @@
     methods: {
       ...mapActions({
         actionUpdateForm: 'contact/actionUpdateForm',
+        actionClearForm: 'contact/actionClearForm',
       }),
       formChange(num) {
         this.formStatus = num
@@ -173,6 +174,11 @@
         } else {
           return
         }
+      },
+      sendMail() {
+        this.actionClearForm()
+        this.mailVerification = ''
+        this.formChange(2)
       }
     },
   }

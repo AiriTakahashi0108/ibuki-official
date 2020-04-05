@@ -19,10 +19,18 @@ export const mutations = {
       state.form[key] = value
     })
   },
+  mutationClearForm(state) {
+    _.forIn(state.form, (value, key, object) => {
+      object[key] = ''
+    })
+  }
 }
 
 export const actions = {
   actionUpdateForm({commit}, dataset) {
     commit('mutationUpdateForm', dataset)
   },
+  actionClearForm({commit}) {
+    commit('mutationClearForm')
+  }
 }
