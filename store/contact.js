@@ -1,37 +1,35 @@
+import _ from 'lodash'
+
 export const state = () => ({
   form: {
-    name: '',
+    name: '8888',
     mail: '',
-    mailVerification: '',
-    about: {
-      selected: '',
-      option: [
-        {
-          name: '出演依頼',
-          value: 'castRequest'
-        },
-        {
-          name: 'レコーディング依頼',
-          value: 'recordingRequest'
-        },
-        {
-          name: 'ボイストレーニングについて',
-          value: 'voiceTraining'
-        },
-        {
-          name: 'ファンメッセージ',
-          value: 'fanMessage'
-        },
-        {
-          name: 'その他',
-          value: 'other'
-        },
-      ],
-    },
+    selected: '',
+    selectOption: [
+      '出演依頼',
+      'レコーディング依頼',
+      'ボイストレーニングについて',
+      'ファンメッセージ',
+      'その他',
+    ],
     comment: ``,
   }
 })
 
 export const getters = {
   form: (state) => state.form,
+}
+
+export const mutations = {
+  mutationUpdateForm(state, dataset) {
+    _.forIn(dataset, (value, key) => {
+      state.form[key] = value
+    })
+  },
+}
+
+export const actions = {
+  actionUpdateForm({commit}, dataset) {
+    commit('mutationUpdateForm', dataset)
+  },
 }
