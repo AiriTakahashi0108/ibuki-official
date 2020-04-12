@@ -1,0 +1,12 @@
+.SandboxRoot .var-fully-expanded .timeline-Viewport {
+  width: 400px;
+  height: 600px;
+  overflow: scroll;
+}
+
+.SandboxRoot.env-bp-970 .timeline-Tweet-text {
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 300;
+  margin: 22px;
+}

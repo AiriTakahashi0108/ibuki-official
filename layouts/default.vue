@@ -1,5 +1,7 @@
 <template>
   <div class="wrapper">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v6.0&appId=570179513117450&autoLogAppEvents=1"></script>
     <BasicHeader/>
     <main class="mainContents">
       <nuxt/>
@@ -27,6 +29,10 @@
     border: none;
     color: inherit;
     border-bottom-color:none;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    color: unset;
   }
 
   :root {
