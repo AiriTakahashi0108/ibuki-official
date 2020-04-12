@@ -14,6 +14,6 @@
 <style>
   .BasicFooter {
     height: 300px;
-    background: var(--basic-backColor-dark);
+    background: black;
   }
 </style>
