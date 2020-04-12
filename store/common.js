@@ -1,12 +1,33 @@
 export const state = () => ({
   linkName: {
-    '/': 'TOP',
-    '/profile': 'PROFILE',
-    '/discography': 'DISCOGRAPHY',
-    '/discography/cover': ['DISCOGRAPHY','カバー動画'],
-    '/discography/request': ['DISCOGRAPHY','依頼作品'],
-    '/schedule': 'SCHEDULE',
-    '/contact': 'CONTACT',
+    '/': {
+      name: 'TOP',
+      jp: 'トップ'
+    },
+    '/profile': {
+      name: 'PROFILE',
+      jp: 'プロフィール'
+    },
+    '/discography': {
+      name: 'DISCOGRAPHY',
+      jp: '作品紹介'
+    },
+    '/discography/cover': {
+      name: 'DISCOGRAPHY',
+      jp: 'カバー動画'
+    },
+    '/discography/request': {
+      name: 'DISCOGRAPHY',
+      jp: '依頼作品'
+    },
+    '/schedule': {
+      name: 'SCHEDULE',
+      jp: 'スケジュール'
+    },
+    '/contact': {
+      name: 'CONTACT',
+      jp: 'コンタクト'
+    },
   }
 })
 
