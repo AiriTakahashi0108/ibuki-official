@@ -1,5 +1,5 @@
 <template>
-  <div class="profileContainer">
+  <div class="profileContainer container">
     <div class="profile content">
       <pageTitle :title="pageTitle" :detail="pageDetail"/>
 
@@ -23,8 +23,6 @@
             name="comment"
             placeholder="お問い合わせ内容を記入してください" 　
           />
-          <p>{{form}}</p>
-          <p>{{errorMessage}}</p>
 
           <button @click.prevent="formCheck">確認画面へ</button>
         </form>
@@ -177,7 +175,7 @@
       },
       sendMail() {
         // TODO:メールを転送する処理をする
-        
+
         this.actionClearForm()
         this.mailVerification = ''
         this.formChange(2)

@@ -1,5 +1,5 @@
 <template>
-  <div class="scheduleContainer">
+  <div class="scheduleContainer　container">
     <div class="schedule content">
       <pageTitle :title="pageTitle" :detail="pageDetail"/>
       <ul>

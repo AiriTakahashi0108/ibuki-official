@@ -1,5 +1,5 @@
 <template>
-  <div class="discographyContainer">
+  <div class="discographyContainer container">
     <aside class="sideMenu">
 
     </aside>

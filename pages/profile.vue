@@ -1,5 +1,5 @@
 <template>
-  <div class="profileContainer">
+  <div class="profileContainer container">
     <div class="profile content">
       <pageTitle :title="pageTitle" :detail="pageDetail"/>
       <div>

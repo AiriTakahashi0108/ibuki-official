@@ -1,5 +1,5 @@
 <template>
-  <div class="newsContainer">
+  <div class="newsContainer container">
     <div class="news content">
       <pageTitle :title="pageTitle" :detail="pageDetail"/>
       <ul class="newsList">
