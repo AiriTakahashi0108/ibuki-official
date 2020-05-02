@@ -22,6 +22,7 @@
   /*設定*/
   body {
     color: var(--basic-fontColor-light);
+    font-size: 17px;
   }
 
   a, a:active, a:visited, .nuxt-link-exact-active, .nuxt-link-active{
