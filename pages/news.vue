@@ -1,17 +1,18 @@
 <template>
   <div class="newsContainer container">
-    <div class="news content">
-      <pageTitle :title="pageTitle" :detail="pageDetail"/>
-      <ul class="newsList">
-        <li v-for="news of newsList">
-          <h3>{{news.title}}</h3>
-          <p>{{news.data}}</p>
-          <div>{{news.content}}</div>
-          <nuxt-link :to="news.link" v-if="news.link">詳細はこちら：{{ linkName[news.link] }}</nuxt-link>
-          <a v-if="news.externalLink" :href="news.externalLink.url" target="_blank">外部リンク：{{news.externalLink.name}}へ</a>
-        </li>
-      </ul>
-    </div>
+<!--    <div class="news content">-->
+<!--      <pageTitle :title="pageTitle" :detail="pageDetail"/>-->
+<!--      <ul class="newsList">-->
+<!--        <li v-for="news of newsList">-->
+<!--          <h3>{{news.title}}</h3>-->
+<!--          <p>{{news.data}}</p>-->
+<!--          <div>{{news.content}}</div>-->
+<!--          <nuxt-link :to="news.link" v-if="news.link">詳細はこちら：{{ linkName[news.link] }}</nuxt-link>-->
+<!--          <a v-if="news.externalLink" :href="news.externalLink.url" target="_blank">外部リンク：{{news.externalLink.name}}へ</a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--    <div>{{newsList}}</div>-->
   </div>
 </template>
 
@@ -29,7 +30,7 @@
     },
     computed: {
       ...mapGetters({
-        newsList: 'news/newsList',
+        // newsList: 'news/newsList',
         linkName: 'common/linkName',
       }),
     },

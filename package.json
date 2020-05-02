@@ -12,9 +12,11 @@
     "awsset": "export AWS_DEFAULT_PROFILE=ibuki-official"
   },
   "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
     "ant-design-vue": "^1.1.10",
     "aws-sdk": "^2.668.0",
     "cross-env": "^5.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "nuxt": "^2.0.0"
   },

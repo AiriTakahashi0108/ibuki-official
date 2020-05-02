@@ -30,18 +30,18 @@
           </div>
         </section>
 
-        <section class="news content">
-          <h2 class="newsTitle">NEWS</h2>
-          <ul class="newsContent">
-            <li v-for="news in newsList" :key="news.id">
-              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.data}}</span>
-              <p>{{news.content}}</p>
-              <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
-              <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
-              <hr>
-            </li>
-          </ul>
-        </section>
+<!--        <section class="news content">-->
+<!--          <h2 class="newsTitle">NEWS</h2>-->
+<!--          <ul class="newsContent">-->
+<!--            <li v-for="news in newsList" :key="news.id">-->
+<!--              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.data}}</span>-->
+<!--              <p>{{news.content}}</p>-->
+<!--              <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>-->
+<!--              <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>-->
+<!--              <hr>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </section>-->
 
         <div class="sns content">
           <h2>SNS</h2>
@@ -52,6 +52,7 @@
             <li><a href="https://www.instagram.com/vocalibuki/" target="_blank"></a></li>
           </ul>
 
+<!--          <div>{{newsList}}</div>-->
 
               <!-- ツイッター埋め込み検討-->
 <!--          <a class="twitter-timeline" data-width="350" data-height="600" data-dnt="true" data-theme="light"-->
@@ -72,9 +73,14 @@
 
   export default {
     components: {FirstViewLogo, BasicFooter},
+    data() {
+      return {
+        newsList: undefined,
+      }
+    },
     computed: {
       ...mapGetters({
-        newsList: 'news/newsList',
+        // newsList: 'news/newsList',
         linkName: 'common/linkName',
       })
     }
