@@ -36,23 +36,24 @@ export const getters = {
 export const mutations = {
   mutationGetNewsList(state, dataset) {
     state.newsList = dataset.Items
-    console.log(state.newsList);
+    console.log(state.newsList)
   }
 }
 
 export const actions = {
-  actionGetNewsList({commit}) {
+  async actionGetNewsList({commit}) {
     var params = {
       TableName: "News"
     };
-    var dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
-
-    dynamodb.scan(params, function (err, dataset) {
-      //TODO: 非同期処理
-      if (err) console.log(err, err.stack); // an error occurred
-      // var dataset = data
-      commit('mutationGetNewsList', dataset);
+    var dynamodb = new AWS.DynamoDB.DocumentClient({
+      apiVersion: '2012-08-10',
+      region: "ap-northeast-1"
     });
+
+    await dynamodb.scan(params,function (err, dataset) {
+      if (err) console.log(err, err.stack); // an error occurred
+      commit('mutationGetNewsList', dataset);
+    }).promise();
   }
 }
 

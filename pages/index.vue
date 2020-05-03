@@ -29,8 +29,10 @@
             </div>
           </div>
         </section>
+        <div>{{newsList}}</div>
 
-<!--        <section class="news content">-->
+
+        <!--        <section class="news content">-->
 <!--          <h2 class="newsTitle">NEWS</h2>-->
 <!--          <ul class="newsContent">-->
 <!--            <li v-for="news in newsList" :key="news.id">-->
@@ -51,9 +53,6 @@
             <li><a href="https://www.facebook.com/vocalIBUKI/notifications/" target="_blank"></a>FBページ</li>
             <li><a href="https://www.instagram.com/vocalibuki/" target="_blank"></a></li>
           </ul>
-
-<!--          <div>{{newsList}}</div>-->
-
               <!-- ツイッター埋め込み検討-->
 <!--          <a class="twitter-timeline" data-width="350" data-height="600" data-dnt="true" data-theme="light"-->
 <!--             href="https://twitter.com/vocal_IBUKI?ref_src=twsrc%5Etfw">Tweets by vocal_IBUKI</a>-->
@@ -72,15 +71,17 @@
   import {mapGetters} from 'vuex';
 
   export default {
+    async fetch({store}) {
+      await store.dispatch('news/actionGetNewsList')
+    },
     components: {FirstViewLogo, BasicFooter},
     data() {
       return {
-        newsList: undefined,
       }
     },
     computed: {
       ...mapGetters({
-        // newsList: 'news/newsList',
+        newsList: 'news/newsList',
         linkName: 'common/linkName',
       })
     }

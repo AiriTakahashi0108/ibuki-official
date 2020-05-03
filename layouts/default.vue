@@ -13,10 +13,6 @@
   import BasicHeader from "@/components/BasicHeader";
 
   export default {
-    beforeMount() {
-      // this.$store.dispatch('news/actionGetNewsList')
-      // this.newsList = this.$store.getters('news/newsList');
-    },
     name:'default',
     components: { BasicHeader}
   }
