@@ -34,7 +34,8 @@
           <h2 class="newsTitle">NEWS</h2>
           <ul class="newsContent">
             <li v-for="news in newsList" :key="news.id">
-              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.DATE | dispDate}}</span>
+              <h3 class="newsContentTitle">{{news.title}} <span v-if="newArrival(news)" class="newsContentIcon">NEW</span></h3>
+              <span>{{news.DATE | dispDate}}</span>
               <p>{{news.content}}</p>
               <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
               <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
@@ -67,6 +68,7 @@
   import FirstViewLogo from "@/components/parts/FirsrViewLogo";
   import BasicFooter from "@/components/BasicFooter";
   import {mapGetters} from 'vuex';
+  import moment from 'moment'
 
   export default {
     async fetch({store}) {
@@ -80,8 +82,13 @@
       ...mapGetters({
         newsList: 'news/newsList',
         linkName: 'common/linkName',
-      })
+      }),
     },
+    methods: {
+      newArrival(news) {
+        return moment().diff(moment(news.DATE, 'YYYYMMDDHHmm'), 'days') <= 7
+      }
+    }
   }
 </script>
 
@@ -183,7 +190,7 @@
 
   .newsContent {
     height: -webkit-fill-available;
-    overflow: scroll;
+    overflow: auto;
     margin: 0px;
     padding: 0px;
     height: 300px;
@@ -193,6 +200,32 @@
 
   .newsContentTitle {
     color: white;
+  }
+
+  .newsContentIcon {
+    display: inline-block;
+    background: #ff5500;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 10pt;
+    letter-spacing: -1px;
+    line-height: 1;
+    vertical-align: top;
+    margin: 0;
+    padding: 2px;
+    transform: scale(0.9) translateX(0%) translateY(45%);
+    animation: flashing .7s infinite alternate;
+  }
+
+  @keyframes flashing {
+    0% {
+      color: #ff5500;
+      background: #ffffff;
+    }
+    100% {
+      color: #ffffff;
+      background: #ff5500;
+    }
   }
 
   .sns {
