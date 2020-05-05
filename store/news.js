@@ -12,15 +12,17 @@ export const getters = {
 export const mutations = {
   mutationGetNewsList(state, dataset) {
     state.newsList = dataset.Items
-    console.log(state.newsList)
+    // console.log(state.newsList)
   }
 }
 
 export const actions = {
   async actionGetNewsList({commit}) {
-    var newDate = Number(moment(new Date()).format('YYYYMMDDHHmm'))
-    console.log(newDate)
 
+    //現在時刻
+    var newDate = Number(moment(new Date()).format('YYYYMMDDHHmm'))
+
+    //テーブル検索用パラメーター
     var params = {
       TableName: "News",
       ScanIndexForward: true,

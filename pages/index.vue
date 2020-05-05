@@ -34,7 +34,7 @@
           <h2 class="newsTitle">NEWS</h2>
           <ul class="newsContent">
             <li v-for="news in newsList" :key="news.id">
-              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.DATE}}</span>
+              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.DATE | dispDate}}</span>
               <p>{{news.content}}</p>
               <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
               <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
@@ -81,7 +81,7 @@
         newsList: 'news/newsList',
         linkName: 'common/linkName',
       })
-    }
+    },
   }
 </script>
 
