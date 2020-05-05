@@ -1,4 +1,5 @@
 import AWS from "aws-sdk";
+import moment from 'moment';
 
 export const state = () => ({
   newsList: [],
@@ -17,6 +18,9 @@ export const mutations = {
 
 export const actions = {
   async actionGetNewsList({commit}) {
+    var newDate = Number(moment(new Date()).format('YYYYMMDDHHmm'))
+    console.log(newDate)
+
     var params = {
       TableName: "News",
       ScanIndexForward: true,
@@ -26,10 +30,9 @@ export const actions = {
         "#Category": "CATEGORY"
       },
       ExpressionAttributeValues: {
-        ":now": 202005051000,
+        ":now": newDate,
         ":category": "NEWS"
       },
-      // ConditionExpression: "#yr LE :yyyy"
     };
 
     var dynamodb = new AWS.DynamoDB.DocumentClient({

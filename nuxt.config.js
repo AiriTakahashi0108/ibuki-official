@@ -33,7 +33,8 @@ module.exports = {
   */
   plugins: [
     '@/plugins/antd-ui',
-    '@/plugins/aws-api'
+    '@/plugins/aws-api',
+    '@/plugins/moment'
   ],
   /*
   ** Nuxt.js dev-modules
