@@ -29,21 +29,19 @@
             </div>
           </div>
         </section>
-        <div>{{newsList}}</div>
 
-
-        <!--        <section class="news content">-->
-<!--          <h2 class="newsTitle">NEWS</h2>-->
-<!--          <ul class="newsContent">-->
-<!--            <li v-for="news in newsList" :key="news.id">-->
-<!--              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.data}}</span>-->
-<!--              <p>{{news.content}}</p>-->
-<!--              <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>-->
-<!--              <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>-->
-<!--              <hr>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </section>-->
+        <section class="news content">
+          <h2 class="newsTitle">NEWS</h2>
+          <ul class="newsContent">
+            <li v-for="news in newsList" :key="news.id">
+              <h3 class="newsContentTitle">{{news.title}}</h3><span>{{news.DATE}}</span>
+              <p>{{news.content}}</p>
+              <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
+              <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
+              <hr>
+            </li>
+          </ul>
+        </section>
 
         <div class="sns content">
           <h2>SNS</h2>
@@ -53,10 +51,10 @@
             <li><a href="https://www.facebook.com/vocalIBUKI/notifications/" target="_blank"></a>FBページ</li>
             <li><a href="https://www.instagram.com/vocalibuki/" target="_blank"></a></li>
           </ul>
-              <!-- ツイッター埋め込み検討-->
-<!--          <a class="twitter-timeline" data-width="350" data-height="600" data-dnt="true" data-theme="light"-->
-<!--             href="https://twitter.com/vocal_IBUKI?ref_src=twsrc%5Etfw">Tweets by vocal_IBUKI</a>-->
-<!--          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+          <!-- ツイッター埋め込み検討-->
+          <!--          <a class="twitter-timeline" data-width="350" data-height="600" data-dnt="true" data-theme="light"-->
+          <!--             href="https://twitter.com/vocal_IBUKI?ref_src=twsrc%5Etfw">Tweets by vocal_IBUKI</a>-->
+          <!--          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
         </div>
 
       </div>
@@ -76,8 +74,7 @@
     },
     components: {FirstViewLogo, BasicFooter},
     data() {
-      return {
-      }
+      return {}
     },
     computed: {
       ...mapGetters({
@@ -143,23 +140,28 @@
     display: flex;
     align-items: center;
   }
+
   .voiceTitle {
     font-weight: bold;
     font-size: 30px;
     color: #fffc89;
   }
+
   .voiceDetail {
     display: flex;
     background: white;
     color: #272727;
     margin-right: 30px;
   }
+
   .voiceDetailText {
     padding: 15px;
   }
+
   .voiceDetailImage {
     height: 100%;
   }
+
   .voiceDetailEntry {
     line-height: 47px;
     font-size: 30px;
@@ -171,12 +173,14 @@
     padding: 20px 40px;
     margin-bottom: 30px;
   }
+
   .newsTitle {
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 15px;
     color: white;
   }
+
   .newsContent {
     height: -webkit-fill-available;
     overflow: scroll;
@@ -186,12 +190,14 @@
     display: flex;
     flex-direction: column-reverse;
   }
+
   .newsContentTitle {
     color: white;
   }
 
   .sns {
   }
+
   .snsList {
     display: flex;
     padding: 0;
@@ -204,12 +210,15 @@
       &:nth-child(1):before {
         content: url(~assets/images/icon-twitter.svg);
       }
+
       &:nth-child(2):before {
         content: url(~assets/images/icon-fb.svg);
       }
+
       &:nth-child(3):before {
         content: url(~assets/images/icon-fb.svg);
       }
+
       &:nth-child(4):before {
         content: url(~assets/images/icon-insta.svg);
       }
