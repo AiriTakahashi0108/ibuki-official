@@ -1,48 +1,87 @@
-const LIVE = [
-  {
-    id: 1,
-    liftingStatus: true,
-    title: 'THE魔界 ~天国への階段~',
-    data: '2020-02-27',
-    place: {
-      title: '新木場1stリング',
-      url: 'http://',
-      pref: '東京都'
-    },
-    open: '18:00',
-    start: '19:00',
-    advanceTicket: 5000,
-    dayTicket: 5500,
-    ticketStatus: {
-      data: '2020-02-14',
-      reservation: [{
-        title: 'e-plus',
-        url: 'http://'
-      }],
-      stop: false,
-    },
-    details:{
-      text: `総合エンターテイメント！！`,
-      url:'http://',
-      urlName:'THE 魔界HP',
-    },
-    image: '~/assets/images/sample-liveImage3.jpg',
-  }
-]
-const RELEASE =  [{
+import AWS from "aws-sdk";
+// import moment from 'moment';
 
-}]
-
-const OTHER = [{}]
+//現在時刻
+// var newDate = Number(new moment(new Date()).format('YYYYMMDDHHmm'))
 
 export const state = () => ({
-  live: LIVE,
-  release: RELEASE,
-  other: OTHER,
+  live: [],
+  media: []
 })
 
 export const getters = {
   live: (state) => state.live,
-  release: (state) => state.release,
+  media: (state) => state.media,
   other: (state) => state.other,
+}
+
+export const mutations = {
+  mutationGetLive(state, dataset) {
+    state.live = dataset.Items
+  },
+  mutationGetMedia(state, dataset) {
+    state.media = dataset.Items
+  },
+  mutationGetOther(state, dataset) {
+    state.other = dataset.Items
+  }
+}
+
+export const actions = {
+  async actionGetLive({commit}) {
+
+    //テーブル検索用パラメーター
+    var params = {
+      TableName: "Schedule",
+      ScanIndexForward: true,
+      // KeyConditionExpression: "#Category = :category and #Date <= :now",
+      KeyConditionExpression: "#Category = :category",
+      ExpressionAttributeNames: {
+        // "#Date": "DATE",
+        "#Category": "CATEGORY"
+      },
+      ExpressionAttributeValues: {
+        // ":now": newDate,
+        ":category": "LIVE",
+      },
+    };
+
+    var dynamodb = new AWS.DynamoDB.DocumentClient({
+      apiVersion: '2012-08-10',
+      region: "ap-northeast-1"
+    });
+
+    await dynamodb.query(params, function (err, dataset) {
+      if (err) console.log(err, err.stack); // an error occurred
+      commit('mutationGetLive', dataset);
+    }).promise();
+  },
+  async actionGetMedia({commit}) {
+
+    //テーブル検索用パラメーター
+    var params = {
+      TableName: "Schedule",
+      ScanIndexForward: true,
+      // KeyConditionExpression: "#Category = :category and #Date <= :now",
+      KeyConditionExpression: "#Category = :category",
+      ExpressionAttributeNames: {
+        // "#Date": "DATE",
+        "#Category": "CATEGORY"
+      },
+      ExpressionAttributeValues: {
+        // ":now": newDate,
+        ":category": "MEDIA",
+      },
+    };
+
+    var dynamodb = new AWS.DynamoDB.DocumentClient({
+      apiVersion: '2012-08-10',
+      region: "ap-northeast-1"
+    });
+
+    await dynamodb.query(params, function (err, dataset) {
+      if (err) console.log(err, err.stack); // an error occurred
+      commit('mutationGetMedia', dataset);
+    }).promise();
+  }
 }

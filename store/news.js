@@ -20,7 +20,7 @@ export const actions = {
   async actionGetNewsList({commit}) {
 
     //現在時刻
-    var newDate = Number(moment(new Date()).format('YYYYMMDDHHmm'))
+    var newDate = Number(new moment(new Date()).format('YYYYMMDDHHmm'))
 
     //テーブル検索用パラメーター
     var params = {
