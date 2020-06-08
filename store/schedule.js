@@ -1,8 +1,8 @@
 import AWS from "aws-sdk";
-// import moment from 'moment';
+import moment from 'moment';
 
 //現在時刻
-// var newDate = Number(new moment(new Date()).format('YYYYMMDDHHmm'))
+var newDate = Number(new moment(new Date()).format('YYYYMMDDHHmm'))
 
 export const state = () => ({
   live: [],
@@ -62,15 +62,15 @@ export const actions = {
     var params = {
       TableName: "Schedule",
       ScanIndexForward: true,
-      // KeyConditionExpression: "#Category = :category and #Date <= :now",
-      KeyConditionExpression: "#Category = :category",
+      KeyConditionExpression: "#Date <= :now",
+      // KeyConditionExpression: "#Category = :category",
       ExpressionAttributeNames: {
-        // "#Date": "DATE",
-        "#Category": "CATEGORY"
+        "#Date": "RELEASE_DATE",
+        // "#Category": "CATEGORY"
       },
       ExpressionAttributeValues: {
-        // ":now": newDate,
-        ":category": "MEDIA",
+        ":now": newDate,
+        // ":category": "MEDIA",
       },
     };
 

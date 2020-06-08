@@ -4,7 +4,7 @@
 
 <script>
   export default {
-    name: "cover"
+    name: "media"
   }
 </script>
 

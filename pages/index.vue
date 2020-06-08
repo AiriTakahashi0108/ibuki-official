@@ -65,14 +65,14 @@
 </template>
 
 <script>
-  import FirstViewLogo from "@/components/parts/FirsrViewLogo";
-  import BasicFooter from "@/components/BasicFooter";
-  import {mapGetters} from 'vuex';
+  import FirstViewLogo from "@/components/parts/FirsrViewLogo"
+  import BasicFooter from "@/components/BasicFooter"
+  import {mapGetters} from 'vuex'
   import moment from 'moment'
 
   export default {
-    async fetch({store}) {
-      await store.dispatch('news/actionGetNewsList')
+    async asyncData({store}) {
+      await store.dispatch('news/fetchNewsList')
     },
     components: {FirstViewLogo, BasicFooter},
     data() {
@@ -93,6 +93,7 @@
 </script>
 
 <style scoped>
+
   .backgroundFix {
     width: 100vw;
     height: 100vh;
@@ -102,7 +103,6 @@
     position: fixed;
     position: relative;
   }
-
   .contentsContainer {
     position: absolute;
     top: 0;
@@ -195,7 +195,13 @@
     padding: 0px;
     height: 300px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+
+    & > li {
+      margin-bottom: auto;
+    }
   }
 
   .newsContentTitle {

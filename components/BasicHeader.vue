@@ -8,17 +8,17 @@
         <nuxt-link to="/" class="menuLink">
           <p class="menuLinkTxt">TOP<span class="--jp">- トップページ -</span></p>
         </nuxt-link>
-        <nuxt-link to="/news" class="menuLink">
-          <p class="menuLinkTxt">NEWS<span class="--jp">- 新着情報 -</span></p>
-        </nuxt-link>
-        <nuxt-link to="/profile" class="menuLink">
+        <nuxt-link class="menuLink" to="/profile">
           <p class="menuLinkTxt">PROFILE<span class="--jp">- 自己紹介 -</span></p>
         </nuxt-link>
-        <nuxt-link to="/discography" class="menuLink discography">
+        <nuxt-link to="/discography" class="menuLink">
           <p class="menuLinkTxt">DISCOGRAPHY<span class="--jp">- CD・動画-</span></p>
         </nuxt-link>
         <nuxt-link to="/schedule" class="menuLink">
           <p class="menuLinkTxt">SCHEDULE<span class="--jp">- ライブ・イベント情報 -</span></p>
+        </nuxt-link>
+        <nuxt-link to="/media" class="menuLink">
+          <p class="menuLinkTxt">MEDIA<span class="--jp">- メディア情報 -</span></p>
         </nuxt-link>
         <nuxt-link to="/contact" class="menuLink">
           <p class="menuLinkTxt">CONTACT<span class="--jp">- お気軽にどうぞ -</span></p>
@@ -113,26 +113,4 @@
     }
   }
 
-  /*.discographyList {*/
-  /*  color: white;*/
-  /*  position: absolute;*/
-  /*  top: 0;*/
-  /*  left: 0;*/
-  /*  background: rgba(57, 57, 57, 0.66);*/
-  /*  flex-direction: column-reverse;*/
-  /*  display: flex;*/
-  /*  padding-top: 100px;*/
-  /*  z-index: 100;*/
-  /*}*/
-  /*.discographyLink {*/
-  /*  height: 30px;*/
-  /*  display: block;*/
-  /*  transition: all 0.3s;*/
-
-  /*  &:hover {*/
-  /*    text-shadow: 0px 0px 6px #121212;*/
-  /*    color: white;*/
-  /*    background: rgba(90, 90, 90, 0.66);*/
-  /*  }*/
-  /*}*/
 </style>

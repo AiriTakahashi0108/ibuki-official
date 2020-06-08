@@ -10,7 +10,7 @@ var params = {
   // TableName: 'test',
   // Item: {s: "testtest"}
   // ID: {S: '2'},
-  TableName: 'News',
+  TableName: 'IBUKI_OFFICIAL',
   Item: {
     "ID": {'S': '2'},
     "Date": {'S': '202004101000'},
