@@ -14,7 +14,7 @@
 
   export default {
     name:'default',
-    components: { BasicHeader}
+    components: { BasicHeader }
   }
 </script>
 

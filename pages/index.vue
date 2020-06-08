@@ -32,16 +32,19 @@
 
         <section class="news content">
           <h2 class="newsTitle">NEWS</h2>
-          <ul class="newsContent">
-            <li v-for="news in newsList" :key="news.id">
-              <h3 class="newsContentTitle">{{news.title}} <span v-if="newArrival(news)" class="newsContentIcon">NEW</span></h3>
-              <span>{{news.DATE | dispDate}}</span>
-              <p>{{news.content}}</p>
-              <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
-              <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
-              <hr>
-            </li>
-          </ul>
+          <div class="newsScrollBox">
+            <ul class="newsContent">
+              <li v-for="news in newsList" :key="news.id">
+                <h3 class="newsContentTitle">{{news.title}} <span v-if="newArrival(news)"
+                                                                  class="newsContentIcon">NEW</span></h3>
+                <span>{{news.DATE | dispDate}}</span>
+                <p>{{news.content}}</p>
+                <nuxt-link :to="news.link" v-if="news.link">{{linkName[news.link].name}}へ</nuxt-link>
+                <a :href="news.externalLink.url" v-if="news.externalLink">{{news.externalLink.name}}へ</a>
+                <hr>
+              </li>
+            </ul>
+          </div>
         </section>
 
         <div class="sns content">
@@ -73,6 +76,7 @@
   export default {
     async asyncData({store}) {
       await store.dispatch('news/fetchNewsList')
+      store.dispatch('discography/fetchDiscographyList')
     },
     components: {FirstViewLogo, BasicFooter},
     data() {
@@ -181,6 +185,12 @@
     margin-bottom: 30px;
   }
 
+  .newsScrollBox {
+    position: relative;
+    height: 500px;
+    overflow: scroll;
+  }
+
   .newsTitle {
     font-size: 20px;
     font-weight: bold;
@@ -189,15 +199,13 @@
   }
 
   .newsContent {
-    height: -webkit-fill-available;
     overflow: auto;
-    margin: 0px;
     padding: 0px;
-    height: 300px;
+    height: fit-content;
     display: flex;
-    flex-direction: column;
-    position: relative;
-    top: 0;
+    flex-direction: column-reverse;
+    position: absolute;
+    width: 100%;
 
     & > li {
       margin-bottom: auto;
