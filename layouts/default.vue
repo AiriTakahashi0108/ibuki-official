@@ -14,7 +14,7 @@
 
   export default {
     name:'default',
-    components: { BasicHeader }
+    components: { BasicHeader },
   }
 </script>
 
@@ -23,6 +23,7 @@
   body {
     color: var(--basic-fontColor-light);
     font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   a, a:active, a:visited, .nuxt-link-exact-active, .nuxt-link-active{

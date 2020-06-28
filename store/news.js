@@ -1,5 +1,7 @@
-import AWS from "aws-sdk";
-import moment from 'moment';
+import axios from 'axios'
+import moment from 'moment-timezone'
+
+moment.tz.setDefault('Asia/Tokyo')
 
 export const state = () => ({
   newsList: [],
@@ -11,43 +13,25 @@ export const getters = {
 
 export const mutations = {
   mutationSetNewsList(state, dataset) {
-    state.newsList = dataset.Items
-    // console.log(state.newsList)
+    state.newsList = dataset
   }
 }
 
 export const actions = {
   async fetchNewsList({commit}) {
 
+
+
     //現在時刻
-    var newDate = Number(new moment(new Date()).format('YYYYMMDDHHmm'))
+    const isoStr = new Date().toISOString();
+    var newDate = Number(new moment(isoStr).format('YYYYMMDDHHmm'))
 
-    //テーブル検索用パラメーター
-    var params = {
-      TableName: "ibuki-official",
-      ScanIndexForward: true,
-      KeyConditionExpression: "#Category = :category and #Date <= :now",
-      ExpressionAttributeNames:{
-        "#Date": "DATE",
-        "#Category": "CATEGORY"
-      },
-      ExpressionAttributeValues: {
-        ":now": newDate,
-        ":category": "NEWS"
-      },
-    };
-
-    // dynamoを作成
-    var dynamodb = new AWS.DynamoDB.DocumentClient({
-      apiVersion: '2012-08-10',
-      region: "ap-northeast-1"
-    });
-
-    //
-    await dynamodb.query(params,function (err, dataset) {
-      if (err) console.log(err, err.stack); // an error occurred
-      commit('mutationSetNewsList', dataset);
-    }).promise();
+    // データを取得
+    await axios.get('https://jojvh1wlfk.execute-api.ap-northeast-1.amazonaws.com/ibuki-official/?category=NEWS&date=' + newDate).then(res => {
+      commit('mutationSetNewsList', res.data.Items)
+    }).catch(e => {
+      console.log(e)
+    })
   },
 }
 

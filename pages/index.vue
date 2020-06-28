@@ -74,10 +74,7 @@
   import moment from 'moment'
 
   export default {
-    async asyncData({store}) {
-      await store.dispatch('news/fetchNewsList')
-      store.dispatch('discography/fetchDiscographyList')
-    },
+
     components: {FirstViewLogo, BasicFooter},
     data() {
       return {}

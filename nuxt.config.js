@@ -20,7 +20,10 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: 'blue',
+    height: '10px'
+  },
   /*
   ** Global CSS
   */
@@ -33,8 +36,10 @@ module.exports = {
   */
   plugins: [
     '@/plugins/antd-ui',
+    // { src: '@/plugins/aws-api.js', ssr: true },
+    // {src: '@/plugins/aws-api.js', mode: 'ssr'},
     '@/plugins/aws-api',
-    '@/plugins/moment'
+    '@/plugins/moment',
   ],
   /*
   ** Nuxt.js dev-modules
