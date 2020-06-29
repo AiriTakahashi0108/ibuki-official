@@ -36,8 +36,6 @@ module.exports = {
   */
   plugins: [
     '@/plugins/antd-ui',
-    // { src: '@/plugins/aws-api.js', ssr: true },
-    // {src: '@/plugins/aws-api.js', mode: 'ssr'},
     '@/plugins/aws-api',
     '@/plugins/moment',
   ],
@@ -55,17 +53,23 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    extend(config, ctx) {
+    },
     postcss: {
+      preset: {
+        features: {
+          'nesting-rules': true
+        }
+      },
       plugins: [
         require('postcss-preset-env')({
           features: {
             'nesting-rules': true,
           }
         }),
+        require('postcss-nested')(),
       ]
     },
-    extend(config, ctx) {
-    }
   },
   env: {
     API

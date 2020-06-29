@@ -1,12 +1,13 @@
 <template>
   <div class="discographyContainer container">
-    <div class="discography content">
+    <div class="content">
       <aside class="sideMenu">
 
       </aside>
+      <div class="discography">
       <pageTitle :title="pageTitle" :detail="pageDetail"/>
       <!-- ピックアップ -->
-      <OriginalPickUp :originalPickUpList="original.pickUpList"/>
+      <PickUp :pickUpList="original.pickUpList" :theme="'original'"/>
       <!--オリジナル-->
       <div>
         <h3 class="sectionTitle">ORIGINAL<span>- オリジナル作品 -</span></h3>
@@ -34,7 +35,7 @@
 <!--        <h3>COVER<span>- カバー動画 -</span></h3>-->
 <!--        <h4>Recommend</h4>-->
 <!--      </div>-->
-
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +44,7 @@
   import {mapGetters} from 'vuex';
   import PageTitle from "@/components/parts/PageTitle";
 
-  import OriginalPickUp from "@/components/discography/OriginalPickUp";
+  import PickUp from "@/components/discography/PickUp";
   import Original from "@/components/discography/Original";
   import OriginalRecommend from "@/components/discography/OriginalRecommend";
   import Request from "@/components/discography/Request";
@@ -53,7 +54,7 @@
     name: "discography",
     components: {
       PageTitle,
-      OriginalPickUp,
+      PickUp,
       Original,
       OriginalRecommend,
       Request,
@@ -85,17 +86,18 @@
     height: 100vh;
     position: fixed;
     background-color: #2b2b2b;
-    left: 0;
     top: 0;
   }
 
   .discography {
-    padding-left: calc(30px + 230px);
+    padding: 30px 30px 30px calc(30px + 230px);
     margin: 0 auto;
-    max-width: 1300px;
     position: relative;
   }
-
+  .content {
+    padding: 0;
+    max-width: 1300px;
+  }
   .sectionTitle {
     position:relative;
     margin:0;

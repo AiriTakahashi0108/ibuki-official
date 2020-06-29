@@ -1,21 +1,27 @@
 <template>
   <div>
     <ul>
-      <li v-if="amazon">
-        <a :href="amazon" target="_blank">
+      <li v-if="purchase.amazon">
+        <a :href="purchase.amazon" target="_blank">
           <img src="~assets/images/icon/amazon.png"/>
         </a>
       </li>
 
-      <li v-if="towerRecords">
-        <a :href="towerRecords" target="_blank">
+      <li v-if="purchase.towerRecords">
+        <a :href="purchase.towerRecords" target="_blank">
           <img src="~assets/images/icon/towerRecords.svg"/>
         </a>
       </li>
 
-      <li v-if="diskUnion">
-        <a :href="diskUnion" target="_blank">
+      <li v-if="purchase.diskUnion">
+        <a :href="purchase.diskUnion" target="_blank">
           <img src="~assets/images/icon/diskUnion.svg"/>
+        </a>
+      </li>
+
+      <li v-if="purchase.hmv">
+        <a :href="purchase.hmv" target="_blank">
+          <img src="~assets/images/icon/hmv.svg"/>
         </a>
       </li>
     </ul>
@@ -24,8 +30,8 @@
 
 <script>
   export default {
-    name: "purchase",
-    props: ['towerRecords', 'amazon', 'diskUnion']
+    name: "Purchase",
+    props: ['purchase']
   }
 </script>
 

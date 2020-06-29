@@ -1,11 +1,14 @@
 <template>
-  <div v-if="originalPickUpList">
-    <h3 class="sectionTitle">ORIGINAL PICK UP!<span>　- オリジナル作品リリース -</span></h3>
+  <div v-if="pickUpList">
+    <div>
+      <h3 v-if="theme === 'original'" class="sectionTitle">ORIGINAL PICK UP!<span>　- オリジナル作品リリース -</span></h3>
+      <h3 v-if="theme === 'request'" class="sectionTitle">REQUEST PICK UP!<span>　- 参加作品リリース -</span></h3>
+    </div>
 
-    <ul class="originalPickUpConteiner">
-      <li v-for="content in originalPickUpList" :key="content.JN">
+    <ul class="pickUpConteiner">
+      <li v-for="content in pickUpList" :key="content.JN">
         <h5 class="title"><div>{{content.title}}</div><span class="pickUpIcon">{{ releaseDateText(content.releaseDate) }}</span></h5>
-        <div class="originalPickUp">
+        <div class="pickUp">
           <p class="pickUpDescription">{{content.pickUpDescription}}</p>
           <div class="movie">
             <iframe
@@ -16,17 +19,33 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen/>
           </div>
-          <p class="price"><span class="label">価格：</span>{{content.price}}円  <span class="priceInTax">(<span class="label">税込：</span>{{Math.floor(content.price * 1.1)}}円)</span></p>
-          <p class="jn"><span class="label">JANコード：</span>{{content.JN}}</p>
 
-          <div class="purchase">
-            <p class="purchaseText">~ ご購入はこちら ~</p>
-            <purchase
-              :amazon="content.purchase.amazon"
-              :towerRecords="content.purchase.towerRecords"
-              :diskUnion="content.purchase.diskUnion"
-            />
+          <div class="textBox">
+            <div class="textBox__left">
+              <p class="price"><span class="label">価格：</span>{{content.price}}円  <span class="price__inTax">(<span class="price__inTax label">税込：</span>{{Math.floor(content.price * 1.1)}}円)</span></p>
+              <p class="jn"><span class="label">JANコード：</span>{{content.JN}}</p>
+
+              <div class="purchase">
+                <p class="purchase__text">ご購入はこちら</p>
+                <purchase
+                  :purchase="content.purchase"
+                />
+              </div>
+              <div class="distribution">
+                <p class="distribution__text">配信一覧</p>
+                <Distribution
+                  :distribution="content.distribution"
+                />
+              </div>
+            </div>
+            <div class="textBox__right">
+              <p class="tunes__label label">曲目：</p>
+              <ol class="tunes">
+                <li v-for="(tune, index) in content.tunes" :key="index">{{tune}}</li>
+              </ol>
+            </div>
           </div>
+
           <p v-if="content.notice" class="purchaseButtonList__notice">{{content.notice}}</p>
         </div>
       </li>
@@ -35,17 +54,19 @@
 </template>
 
 <script>
-  import purchase from "@/components/discography/purchase"
+  import Purchase from "@/components/discography/Purchase"
+  import Distribution from "@/components/discography/Distribution"
+
   import moment from "moment-timezone";
   moment.tz.setDefault('Asia/Tokyo')
 
-
   export default {
-    name: "originalPickUp",
+    name: "pickUp",
     components: {
-      purchase
+      Purchase,
+      Distribution
     },
-    props: ['originalPickUpList'],
+    props: ['pickUpList', 'theme'],
     methods: {
       releaseDateText(releaseDate) {
         const isoStr = new Date().toISOString();
@@ -63,11 +84,6 @@
 </script>
 
 <style lang="postcss" scoped>
-  .movie {
-    width: 100%;
-    height: 100%;
-  }
-
   .title {
     position: relative;
     background: rgb(255,255,255);
@@ -82,13 +98,13 @@
     font-weight: bolder;
   }
 
-  .originalPickUpConteiner {
+  .pickUpConteiner {
     padding: 0;
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,0.7357317927170868) 0%, rgba(0,0,0,0.8225665266106442) 35%, rgba(0,0,0,1) 100%);
   }
 
-  .originalPickUp {
+  .pickUp {
     padding: 30px 20px;
     color: white;
   }
@@ -128,7 +144,7 @@
     background: #ff8700;
     color: #ffffff;
     font-weight: bold;
-    font-size: 15pt;
+    font-size: 9px;
     letter-spacing: -1px;
     line-height: 1;
     vertical-align: top;
@@ -144,29 +160,68 @@
   }
 
   .movie {
+    width: 100%;
+    height: 50vw;
+    max-height: 700px;
     margin-bottom: 20px;
+  }
+
+  .textBox {
+    display: flex;
+
+    &__left {
+      flex-basis: 40%;
+    }
+  }
+
+  .tunes {
+    margin-bottom: 15px;
+    &__label {
+      magin-bottom: 10px;
+    }
+    & > li {
+      font-size: 16px;
+      list-style: decimal-leading-zero;
+      padding-left: 6px;
+    }
   }
 
   .price {
     font-size: 19px;
     margin-bottom: 0.4em;
-  }
-
-  .priceInTax {
-    font-size: 15px;
-    margin-bottom: 0.4em;
+    &__inTax {
+      font-size: 15px;
+      margin-bottom: 0.4em;
+      & .label {
+        border-left: none;
+      }
+    }
   }
 
   .purchase {
     margin-top: 35px;
+    &__text {
+      font-weight: bolder;
+      border-left: 3px solid aqua;
+      padding-left: 10px;
+    }
   }
 
-  .purchaseText {
-    font-weight: bolder;
+  .distribution {
+    margin-top: 25px;
+    &__text {
+      font-weight: bolder;
+      border-left: 3px solid aqua;
+      margin-right: 5px;
+      padding-left: 10px;
+    }
   }
 
   .label {
-    font-size: 0.8em;
+    font-size: 13px;
+    border-left: 3px solid aqua;
+    padding: 3px 3px 3px 9px;
+    margin-right: 5px;
   }
 
   @keyframes flashing {

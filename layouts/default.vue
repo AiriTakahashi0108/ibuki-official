@@ -23,7 +23,7 @@
   body {
     color: var(--basic-fontColor-light);
     font-size: 17px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Noto Sans CJK JP", sans-serif;
   }
 
   a, a:active, a:visited, .nuxt-link-exact-active, .nuxt-link-active{
@@ -35,6 +35,7 @@
 
   h1,h2,h3,h4,h5,h6 {
     color: unset;
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   :root {
