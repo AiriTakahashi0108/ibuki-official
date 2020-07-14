@@ -21,15 +21,6 @@ var params = {
   }
 };
 
-// Call DynamoDB to add the item to the table
-// docClient.put(params, function (err, data) {
-//   if (err) {
-//     console.log("Error", err);
-//   } else {
-//     console.log("Success", data);
-//   }
-// });
-
 
 docClient.scan(params, (err, data) => {
   if (err) console.log(JSON.stringify(err, null, 2))
