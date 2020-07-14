@@ -22,7 +22,7 @@
         </div>
 
         <div class="purchaseButtonList">
-          <p class="purchaseButtonList__text">ご購入はこちら</p>
+          <p class="purchaseButtonList__text">ご購入はこちらaaaa</p>
 <!--          <purchase-->
 <!--            :amazon="content.purchase.amazon"-->
 <!--            :towerRecords="content.purchase.towerRecords"-->
