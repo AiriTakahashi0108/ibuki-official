@@ -5,19 +5,13 @@
         <pageTitle :title="pageTitle" :detail="pageDetail"/>
 
         <nav>
-          <button @click.prevent="isActive = 1">PICK UP</button>
-          <button @click.prevent="isActive = 2">ORIGINAL</button>
-          <button @click.prevent="isActive = 3">REQUEST</button>
-          <button @click.prevent="isActive = 4">COVER</button>
+          <nuxt-link to="/discography">PICK UP</nuxt-link>
+          <nuxt-link to="/discography/original">ORIGINAL</nuxt-link>
+          <nuxt-link to="/discography/request">REQUEST</nuxt-link>
+          <nuxt-link to="/discography/cover">COVER</nuxt-link>
         </nav>
 
-        <div>
-          <PickUp :pickUpList="original.pickUpList" v-show="isActive === 1"></PickUp>
-          <Original :originalList="original.list" v-show="isActive === 2">2</Original>
-          <div v-show="isActive === 3">3</div>
-          <div v-show="isActive === 4">4</div>
-        </div>
-
+        <nuxt-child></nuxt-child>
       </div>
     </div>
   </div>
@@ -27,30 +21,14 @@
   import {mapGetters} from 'vuex';
   import PageTitle from "@/components/parts/PageTitle";
 
-  import PickUp from "@/components/discography/PickUp";
-  import Original from "@/components/discography/Original";
-  import Request from "@/components/discography/Request";
-
   export default {
     name: "discography",
     components: {
-      PageTitle,
-      PickUp,
-      Original,
-      Request,
-    },
-    created() {
-      // if(original.pickUpList || request.pickUpList) {
-      //   this.isActive = 1
-      // } else {
-      //   this.isActive = 2
-      // }
     },
     data() {
       return {
         pageTitle: 'DISCOGRAPHY',
         pageDetail: "作品を紹介します",
-        isActive: 1,
       }
     },
     computed: {

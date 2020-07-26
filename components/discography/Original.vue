@@ -39,8 +39,6 @@
   </div>
 </template>
 
-
-
 <script>
   import purchase from "@/components/discography/purchase"
   import VueSlickCarousel from 'vue-slick-carousel'
