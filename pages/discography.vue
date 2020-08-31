@@ -2,7 +2,7 @@
   <div class="discographyContainer container">
     <div class="content">
       <div class="discography">
-        <pageTitle :title="pageTitle" :detail="pageDetail"/>
+        <PageTitle :title="pageTitle" :detail="pageDetail"/>
 
         <nav>
           <nuxt-link to="/discography">PICK UP</nuxt-link>
@@ -18,27 +18,28 @@
 </template>
 
 <script>
-  import {mapGetters} from 'vuex';
-  import PageTitle from "@/components/parts/PageTitle";
+import {mapGetters} from 'vuex';
+import PageTitle from "@/components/parts/PageTitle";
 
-  export default {
-    name: "discography",
-    components: {
-    },
-    data() {
-      return {
-        pageTitle: 'DISCOGRAPHY',
-        pageDetail: "作品を紹介します",
-      }
-    },
-    computed: {
-      ...mapGetters({
-        original: 'discography/original',
-        request: 'discography/request',
-        cover: 'discography/cover',
-      }),
-    },
-  }
+export default {
+  name: "discography",
+  components: {
+    PageTitle
+  },
+  data() {
+    return {
+      pageTitle: 'DISCOGRAPHY',
+      pageDetail: "作品を紹介します",
+    }
+  },
+  computed: {
+    ...mapGetters({
+      original: 'discography/original',
+      request: 'discography/request',
+      cover: 'discography/cover',
+    }),
+  },
+}
 </script>
 
 <style scoped>

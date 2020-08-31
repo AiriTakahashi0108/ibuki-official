@@ -28,6 +28,8 @@
     "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-plugin-vue": "^6.2.2",
     "nodemon": "^1.18.9"
   }
 }

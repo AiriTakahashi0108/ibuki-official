@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <nuxt-child></nuxt-child>
-  </div>
+  <div>{{$route.params.id}}</div>
 </template>
 
 <script>
 export default {
-  name: "index"
+  name: "_id"
 }
 </script>
 
